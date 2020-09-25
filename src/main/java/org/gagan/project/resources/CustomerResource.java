@@ -19,9 +19,43 @@ public class CustomerResource {
 
     private ParkingSpotResource parkingSpotResource=new ParkingSpotResource();
     private PaymentResource paymentResource=new PaymentResource();
+
+    private List<Customer> getCustomerByVehicleType(List<Customer> res,String vtype)
+    {
+        if(vtype.equals("null"))
+        {
+            return res;
+        }
+        else if(vtype.toLowerCase().equals("car"))
+        {
+            List<Customer> list=new ArrayList<>();
+            for(Customer c:res)
+            {
+                if(c.getVehicleType()==VehicleType.CAR)
+                {
+                    list.add(c);
+                }
+            }
+            return list;
+        }
+        else if(vtype.toLowerCase().equals("bike"))
+        {
+            List<Customer> list=new ArrayList<>();
+            for(Customer c:res)
+            {
+                if(c.getVehicleType()==VehicleType.BIKE)
+                {
+                    list.add(c);
+                }
+            }
+            return list;
+        }
+        return null;
+    }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllCustomers(@PathParam("tenID") long tenantId)
+    public Response getAllCustomers(@PathParam("tenID") long tenantId ,@DefaultValue("null") @QueryParam("parked") String parked,
+                                    @DefaultValue("null") @QueryParam("vehicletype") String vtype)
     {
         List<Customer> res=new ArrayList<>();
         try
@@ -56,16 +90,96 @@ public class CustomerResource {
                     .build();
         }
 
-        Customer[] arr=new Customer[res.size()];
-        for(int i=0;i<res.size();i++)
-        {
-            arr[i]=res.get(i);
-        }
+        if (parked.equals("null")) {
 
-        return Response
-                .ok()
-                .entity(arr)
-                .build();
+
+            List<Customer> list=getCustomerByVehicleType(res,vtype);
+
+            if(list==null)
+            {
+                return Response
+                        .noContent()
+                        .header("Error","Wrong Query parameter!")
+                        .build();
+            }
+
+            Customer[] arr = new Customer[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                arr[i] = list.get(i);
+            }
+
+            return Response
+                    .ok()
+                    .entity(arr)
+                    .build();
+        }
+        else if(parked.equals("false"))
+        {
+            List<Customer> notParked=new ArrayList<>();
+            for(Customer c:res)
+            {
+                if(!c.isParked())
+                {
+                    notParked.add(c);
+                }
+            }
+
+            List<Customer> list=getCustomerByVehicleType(notParked,vtype);
+            if(list==null)
+            {
+                return Response
+                        .noContent()
+                        .header("Error","Wrong Query parameter!")
+                        .build();
+            }
+
+            Customer[] arr = new Customer[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                arr[i] = list.get(i);
+            }
+
+            return Response
+                    .ok()
+                    .entity(arr)
+                    .build();
+        }
+        else if(parked.equals("true")){
+            List<Customer> park=new ArrayList<>();
+            for(Customer c:res)
+            {
+                if(c.isParked())
+                {
+                    park.add(c);
+                }
+            }
+
+            List<Customer> list=getCustomerByVehicleType(park,vtype);
+            if(list==null)
+            {
+                return Response
+                        .noContent()
+                        .header("Error","Wrong Query parameter!")
+                        .build();
+            }
+
+
+            Customer[] arr = new Customer[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                arr[i] = list.get(i);
+            }
+
+            return Response
+                    .ok()
+                    .entity(arr)
+                    .build();
+        }
+        else
+        {
+            return Response
+                    .noContent()
+                    .header("Error","Wrong Query parameter!")
+                    .build();
+        }
 
     }
 

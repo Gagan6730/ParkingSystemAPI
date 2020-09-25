@@ -136,7 +136,7 @@ public class ParkingSpotResource
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addParkingSpot(@PathParam("tenID") long tenantId,ParkingSpot ps, @Context UriInfo uriInfo)
+    public Response addParkingSpot(@PathParam("tenID") long tenantId,ParkingSpot ps)
     {
         try
         {
@@ -164,10 +164,10 @@ public class ParkingSpotResource
                     .build();
         }
 
-        URI uri = uriInfo.getAbsolutePathBuilder().path(Long.toString(ps.getId())).build();
+//        URI uri = uriInfo.getAbsolutePathBuilder().path(Long.toString(ps.getId())).build();
 
         return Response
-                .created(uri)
+                .status(201)
                 .entity(ps)
                 .build();
 

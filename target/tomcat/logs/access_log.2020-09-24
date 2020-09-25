@@ -35,3 +35,5 @@
 0:0:0:0:0:0:0:1 - - [24/Sep/2020:18:43:37 +0530] "PUT /ParkingSystem/webapi/tenant/2/price HTTP/1.1" 500 1039 http-bio-8080-exec-5 36
 0:0:0:0:0:0:0:1 - - [24/Sep/2020:18:43:42 +0530] "GET /ParkingSystem/webapi/tenant/2/price HTTP/1.1" 200 160 http-bio-8080-exec-6 16
 0:0:0:0:0:0:0:1 - - [24/Sep/2020:18:43:49 +0530] "GET /ParkingSystem/webapi/tenant/2/payment HTTP/1.1" 200 200 http-bio-8080-exec-7 18
+0:0:0:0:0:0:0:1 - - [24/Sep/2020:18:57:24 +0530] "GET /ParkingSystem/webapi/tenant/2/payment HTTP/1.1" 200 200 http-bio-8080-exec-1 1452
+0:0:0:0:0:0:0:1 - - [24/Sep/2020:18:57:31 +0530] "GET /ParkingSystem/webapi/tenant/2/customer HTTP/1.1" 200 1044 http-bio-8080-exec-2 95

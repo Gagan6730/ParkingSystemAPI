@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4099f62-a884-4c34-a1fc-92010b6e767e" name="Default Changelist" comment="" />
+    <list default="true" id="f4099f62-a884-4c34-a1fc-92010b6e767e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/test/FirstTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/ParkingSystem.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-25" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/CustomerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/CustomerResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/LevelResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/LevelResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/CustomerResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/CustomerResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/LevelResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/LevelResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/test/FirstTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-24" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-24" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +68,30 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="FirstTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ParkingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.gagan.project.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.gagan.project.test" />
+      <option name="MAIN_CLASS_NAME" value="org.gagan.project.test.FirstTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.FirstTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />

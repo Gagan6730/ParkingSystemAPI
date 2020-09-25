@@ -2,6 +2,8 @@ package org.gagan.project.resources;
 
 
 import org.gagan.project.models.Level;
+import org.gagan.project.models.ParkingSpot;
+import org.gagan.project.models.VehicleType;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -16,9 +18,10 @@ import java.util.*;
 @Path("/tenant/{tenID}/level")
 public class LevelResource {
     private DatabaseConnection db=DatabaseConnection.getInstance();
+    private ParkingSpotResource parkingSpotResource=new ParkingSpotResource();
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllLevelDetails(@PathParam("tenID") int tenantId , @DefaultValue("-1") @QueryParam("id") long levId)
+    public Response getAllLevelDetails(@PathParam("tenID") int tenantId , @DefaultValue("-1") @QueryParam("level") long levId)
     {
         List<Level> res=new ArrayList<>();
         try
@@ -96,6 +99,9 @@ public class LevelResource {
             String insert="insert into level values("+nextid+" , "+tenantId+" , "+level.getCarSpots()+" , "+level.getBikeSpots()+");";
             stmt.executeUpdate(insert);
 
+
+
+
             rs.close();
             stmt.close();
         } catch (SQLException e) {
@@ -107,6 +113,17 @@ public class LevelResource {
                     .build();
         }
 
+        for(int i=0;i<level.getCarSpots();i++)
+        {
+            ParkingSpot ps=new ParkingSpot(VehicleType.CAR,level.getId());
+            parkingSpotResource.addParkingSpot(tenantId,ps);
+        }
+
+        for(int i=0;i<level.getBikeSpots();i++)
+        {
+            ParkingSpot ps=new ParkingSpot(VehicleType.BIKE,level.getId());
+            parkingSpotResource.addParkingSpot(tenantId,ps);
+        }
         URI uri = uriInfo.getAbsolutePathBuilder().path(Long.toString(level.getId())).build();
 
         return Response
