@@ -62,7 +62,21 @@ public class ParkingSpotResource
                     .build();
         }
         else {
-            long vType=type.equals("CAR")?0:1;
+            long vType=-1;
+            if(type.toLowerCase().equals("car"))
+            {
+                vType=0;
+            }
+            else if(type.toLowerCase().equals("bike")){
+                vType=1;
+            }
+            if(vType==-1)
+            {
+                return Response
+                        .noContent()
+                        .header("Error","Wrong vehicle type!")
+                        .build();
+            }
             List<ParkingSpot> parkingSpots=new ArrayList<>();
             for(ParkingSpot p:res)
             {

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4099f62-a884-4c34-a1fc-92010b6e767e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/TenantResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/test/FirstTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-28" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-28" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +60,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.org.gagan.project.unitTest">
+    <configuration name="CustomerResourceTest.getAllCustomers" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ParkingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.gagan.project.unitTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.gagan.project.unitTest" />
+      <option name="MAIN_CLASS_NAME" value="org.gagan.project.unitTest.CustomerResourceTest" />
+      <option name="METHOD_NAME" value="getAllCustomers" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TenantResourceTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ParkingSystem" />
       <extension name="coverage">
@@ -77,8 +96,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="org.gagan.project.unitTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ParkingSystem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.gagan.project.unitTest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.gagan.project.unitTest" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.org.gagan.project.unitTest" />
+        <item itemvalue="TestNG.CustomerResourceTest.getAllCustomers" />
         <item itemvalue="TestNG.TenantResourceTest" />
       </list>
     </recent_temporary>
