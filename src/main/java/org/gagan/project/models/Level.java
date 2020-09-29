@@ -20,6 +20,12 @@ public class Level {
         this.bikeSpots = bikeSpots;
     }
 
+    public Level(long carSpots, long bikeSpots) {
+        this.id = id;
+        this.tenantId = tenantId;
+        this.carSpots = carSpots;
+        this.bikeSpots = bikeSpots;
+    }
     public long getId() {
         return id;
     }

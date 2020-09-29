@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import java.io.*;
 import java.util.*;
 
-@Test()
+
 public class CustomerResourceTest {
     @Test
     public void getAllCustomers()
@@ -76,7 +76,7 @@ public class CustomerResourceTest {
 
     }
 
-//    @Test
+//    @Test(priority = 4)
 //    public void addCustomer()
 //    {
 //        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
@@ -88,6 +88,7 @@ public class CustomerResourceTest {
 //        Response response=builder.post(Entity.entity(new Customer("DL9CPQ0110",VehicleType.CAR),MediaType.APPLICATION_JSON));
 //        Assert.assertEquals(response.getStatus(),Response.Status.CREATED.getStatusCode());
 //    }
+
 
 
 

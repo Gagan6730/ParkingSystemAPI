@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 import java.io.*;
 import java.util.*;
 
+@Test(priority = 4)
 public class ParkingSpotResourceTest {
     @Test
     public void getAllParkingSpots()

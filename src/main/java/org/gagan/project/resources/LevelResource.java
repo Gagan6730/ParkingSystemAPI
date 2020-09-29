@@ -188,7 +188,7 @@ public class LevelResource {
     {
         try
         {
-            Level currLevel=getLevelWithId(tenantId,level).readEntity(Level.class);
+            Level currLevel= (Level) getLevelWithId(tenantId,level).getEntity();
 
             Statement stmt=db.getC().createStatement();
             stmt.executeUpdate("update level set carspots="+(currLevel.getCarSpots()+car)+" , bikespots="+(currLevel.getBikeSpots()+bike)+" where tenantid="
@@ -213,21 +213,21 @@ public class LevelResource {
             {
                 return response;
             }
-            spots[ind++]=response.readEntity(ParkingSpot.class);
+            spots[ind++]= (ParkingSpot) response.getEntity();
         }
         for(long i=0;i<bike;i++)
         {
-            Response response=parkingSpotResource.addParkingSpot(tenantId,new ParkingSpot(VehicleType.CAR,level));
+            Response response=parkingSpotResource.addParkingSpot(tenantId,new ParkingSpot(VehicleType.BIKE,level));
             if(response.getStatus()==500)
             {
                 return response;
             }
-            spots[ind++]=response.readEntity(ParkingSpot.class);
+            spots[ind++]= (ParkingSpot) response.getEntity();
         }
 
 
         return Response
-                .status(201)
+                .status(204)
                 .entity(spots)
                 .build();
     }

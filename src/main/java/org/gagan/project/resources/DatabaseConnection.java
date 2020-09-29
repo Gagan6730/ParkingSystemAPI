@@ -26,7 +26,7 @@ public class DatabaseConnection {
         }
     }
 
-    static DatabaseConnection getInstance()
+    public static DatabaseConnection getInstance()
     {
         if(instance==null)
         {

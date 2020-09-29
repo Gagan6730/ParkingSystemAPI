@@ -3,23 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="f4099f62-a884-4c34-a1fc-92010b6e767e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/CustomerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/CustomerResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/models/Level.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/LevelResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/LevelResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/PaymentResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/PaymentResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/TenantResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/TenantResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/TicketResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/TicketResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/CustomerResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/CustomerResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/ParkingSpotResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/ParkingSpotResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/PaymentResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/PaymentResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/TenantResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/TenantResourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/models/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/CustomerResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/CustomerResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/models/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/models/Level.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/DatabaseConnection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/LevelResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/LevelResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/PaymentResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/PaymentResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/TenantResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/TenantResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/TicketResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/TicketResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-28" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-28" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-29" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-29" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +67,7 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="org.gagan.project.unitTest" />
+      <recent name="org.gagan.project.resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -159,9 +157,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.org.gagan.project.unitTest" />
+        <item itemvalue="TestNG.TenantResourceTest" />
         <item itemvalue="TestNG.CustomerResourceTest" />
         <item itemvalue="TestNG.CustomerResourceTest.getAllCustomers" />
-        <item itemvalue="TestNG.TenantResourceTest" />
       </list>
     </recent_temporary>
   </component>

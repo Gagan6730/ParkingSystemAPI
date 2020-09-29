@@ -147,7 +147,7 @@ public class ParkingSpotResource
 
     }
 
-    @POST
+//    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addParkingSpot(@PathParam("tenID") long tenantId,ParkingSpot ps)
