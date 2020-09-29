@@ -21,7 +21,7 @@ public class LevelResource {
     private ParkingSpotResource parkingSpotResource=new ParkingSpotResource();
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllLevelDetails(@PathParam("tenID") int tenantId , @DefaultValue("-1") @QueryParam("level") long levId)
+    public Response getAllLevels(@PathParam("tenID") int tenantId , @DefaultValue("-1") @QueryParam("level") long levId)
     {
         List<Level> res=new ArrayList<>();
         try
@@ -81,6 +81,53 @@ public class LevelResource {
         }
     }
 
+    @GET
+    @Path("/{level}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getLevelWithId(@PathParam("tenID") long tenantId, @PathParam("level") long level)
+    {
+        Level currLevel=null;
+        try
+        {
+            Statement stmt=db.getC().createStatement();
+            ResultSet rs=stmt.executeQuery("select * from level where tenantid="+tenantId+";");
+
+            if(rs.next())
+            {
+                long id=rs.getLong("id");
+                long tenantid=rs.getLong("tenantid");
+                long carspots=rs.getLong("carspots");
+                long bikespots=rs.getLong("bikespots");
+
+                currLevel=new Level(id,tenantId,carspots,bikespots);
+
+            }
+            rs.close();
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Response
+                    .status(500)
+                    .header("Error",e.getMessage())
+                    .build();
+        }
+
+        if(currLevel==null)
+        {
+            return Response
+                    .noContent()
+                    .header("Error","No level:"+level+" available for tenantid:"+tenantId)
+                    .build();
+        }
+
+        return Response
+                .ok()
+                .entity(currLevel)
+                .build();
+    }
+
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
@@ -131,4 +178,58 @@ public class LevelResource {
                 .entity(level)
                 .build();
     }
+
+    @PUT
+    @Path("/{level}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addParkingSpotsAtLevel(@PathParam("tenID") long tenantId, @PathParam("level") long level, @DefaultValue("0") @QueryParam("car") long car,
+                                           @DefaultValue("0") @QueryParam("bike") long bike)
+    {
+        try
+        {
+            Level currLevel=getLevelWithId(tenantId,level).readEntity(Level.class);
+
+            Statement stmt=db.getC().createStatement();
+            stmt.executeUpdate("update level set carspots="+(currLevel.getCarSpots()+car)+" , bikespots="+(currLevel.getBikeSpots()+bike)+" where tenantid="
+                    +tenantId+" and id="+level+";");
+
+            stmt.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return Response
+                    .status(500)
+                    .header("Error",e.getMessage())
+                    .build();
+        }
+
+        ParkingSpot[] spots=new ParkingSpot[(int) (car+bike)];
+        int ind=0;
+        for(long i=0;i<car;i++)
+        {
+            Response response=parkingSpotResource.addParkingSpot(tenantId,new ParkingSpot(VehicleType.CAR,level));
+            if(response.getStatus()==500)
+            {
+                return response;
+            }
+            spots[ind++]=response.readEntity(ParkingSpot.class);
+        }
+        for(long i=0;i<bike;i++)
+        {
+            Response response=parkingSpotResource.addParkingSpot(tenantId,new ParkingSpot(VehicleType.CAR,level));
+            if(response.getStatus()==500)
+            {
+                return response;
+            }
+            spots[ind++]=response.readEntity(ParkingSpot.class);
+        }
+
+
+        return Response
+                .status(201)
+                .entity(spots)
+                .build();
+    }
+
 }

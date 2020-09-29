@@ -54,11 +54,12 @@ public class Customer {
         this.parkingSpotID = parkingSpotID;
         this.isParked=isParked;
     }
-    public Customer(String vehicleNum) {
+    public Customer(String vehicleNum,VehicleType vehicleType) {
         this.vehicleNum = vehicleNum;
         this.entryTime = new Timestamp(System.currentTimeMillis());
         this.entryTime=null;
         this.isParked=true;
+        this.vehicleType=vehicleType;
     }
 
     public long getId() {

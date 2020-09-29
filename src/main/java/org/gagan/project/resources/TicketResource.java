@@ -98,7 +98,7 @@ public class TicketResource {
         }
     }
 
-    @POST
+//    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public static Response addTicket(@PathParam("tenID") long tenantId,Ticket ticket)

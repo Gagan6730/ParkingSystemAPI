@@ -25,8 +25,9 @@ public class PaymentResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllPayments(@PathParam("tenID") long tenantId, @DefaultValue("-1") @QueryParam("customerid") long cid)
     {
+        System.out.println("getAllPayments");
         List<Payment> res=new ArrayList<>();
-        System.out.println(cid);
+
         try
         {
 
@@ -125,7 +126,7 @@ public class PaymentResource {
                 .build();
     }
 
-    @POST
+//    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addPayment(@PathParam("tenID") long tenantId, Payment payment )

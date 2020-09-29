@@ -59,29 +59,29 @@ public class TenantResourceTest {
         Assert.assertEquals(response.getStatus(),Response.Status.NO_CONTENT.getStatusCode());
     }
 
-    @Test
-    public void addTenant()
-    {
-        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
-        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant");
-
-        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
-        Tenant t=new Tenant("ABCD3","abcd3","pass3");
-
-        Response response=builder.post(Entity.entity(t,MediaType.APPLICATION_JSON));
-
-        System.out.println(response.getStatus());
-        Assert.assertEquals(response.getStatus(),Response.Status.CREATED.getStatusCode());
-
-
-
-        //add same tenant would return bad request
-        response=builder.post(Entity.entity(t,MediaType.APPLICATION_JSON));
-
-        System.out.println(response.getStatus());
-        Assert.assertEquals(response.getStatus(),Response.Status.BAD_REQUEST.getStatusCode());
-
-    }
+//    @Test
+//    public void addTenant()
+//    {
+//        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
+//        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant");
+//
+//        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
+//        Tenant t=new Tenant("ABCD3","abcd3","pass3");
+//
+//        Response response=builder.post(Entity.entity(t,MediaType.APPLICATION_JSON));
+//
+//        System.out.println(response.getStatus());
+//        Assert.assertEquals(response.getStatus(),Response.Status.CREATED.getStatusCode());
+//
+//
+//
+//        //add same tenant would return bad request
+//        response=builder.post(Entity.entity(t,MediaType.APPLICATION_JSON));
+//
+//        System.out.println(response.getStatus());
+//        Assert.assertEquals(response.getStatus(),Response.Status.BAD_REQUEST.getStatusCode());
+//
+//    }
 
 
 }

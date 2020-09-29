@@ -188,6 +188,9 @@ public class ParkingSpotResource
     }
 
 
+
+
+
     boolean changeReservedStatus(long tenantId, long parkingSpotId, boolean changeTo)
     {
         try

@@ -1,7 +1,6 @@
 package org.gagan.project.resources;
 
-import org.gagan.project.models.Customer;
-import org.gagan.project.models.Tenant;
+import org.gagan.project.models.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -19,6 +18,8 @@ import java.util.*;
 public class TenantResource {
 
     private DatabaseConnection db=DatabaseConnection.getInstance();
+    private ParkingSpotResource parkingSpotResource=new ParkingSpotResource();
+
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

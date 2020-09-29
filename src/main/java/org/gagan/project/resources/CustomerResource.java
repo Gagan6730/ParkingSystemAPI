@@ -312,9 +312,10 @@ public class CustomerResource {
                         .build();
             }
 
+
             Timestamp exitTime=new Timestamp(System.currentTimeMillis());
             customer.setExitTime(exitTime);
-
+            customer.setParked(false);
             paymentResource.calculatePrice(tenantId,customer);
             parkingSpotResource.changeReservedStatus(tenantId,customer.getParkingSpotID(),false);
 
