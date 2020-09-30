@@ -20,6 +20,7 @@ import static org.testng.Assert.*;
 public class PaymentResourceTest {
 
     Payment[] payments;
+    long amount=0;
     @Test
     public void testGetAllPayments() {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
@@ -35,6 +36,7 @@ public class PaymentResourceTest {
         for(Payment p:payments)
         {
             System.out.println(p.getTenantId()+" "+p.getCustomerId()+" "+p.getAmount());
+            amount+=p.getAmount();
         }
         Assert.assertEquals(payments.length,1);
 
@@ -57,6 +59,26 @@ public class PaymentResourceTest {
         System.out.println(p.getTenantId()+" "+p.getCustomerId()+" "+p.getAmount());
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
+    }
+
+    @Test
+    public void testGetTotalAmountCollected()
+    {
+        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
+                .path(Long.toString(ResourceCreation.t.getTenantID()))
+                .path("payment")
+                .path("report");
+
+        Invocation.Builder builder=webTarget.request(MediaType.TEXT_PLAIN);
+        Response response=builder.get();
+
+        long sum=response.readEntity(Long.class);
+        System.out.println(sum);
+        Assert.assertEquals(sum,amount);
+
+        Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
+
     }
 
 }

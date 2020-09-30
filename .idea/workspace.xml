@@ -5,10 +5,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/CustomerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/CustomerResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/PaymentResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/PaymentResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/CustomerResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/CustomerResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/ParkingSpotResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/ParkingSpotResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/PaymentResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/PaymentResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/CustomerResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/CustomerResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/PaymentResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/PaymentResource.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-30" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-30" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testng.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

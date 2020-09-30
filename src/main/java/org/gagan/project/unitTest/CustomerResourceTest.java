@@ -7,6 +7,7 @@ import org.glassfish.jersey.client.ClientConfig;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import test.v6.C;
 
 import javax.annotation.Priority;
 import javax.ws.rs.client.*;
@@ -144,4 +145,49 @@ public class CustomerResourceTest {
 
     }
 
+
+    @Test
+    public void testParkedMoreThanDay()
+    {
+        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
+                .path(Long.toString(ResourceCreation.t.getTenantID()))
+                .path("customer")
+                .path("report");
+
+        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);
+        Response response=builder.get();
+
+        Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
+
+        Customer[] customers=response.readEntity(Customer[].class);
+        for(Customer c:customers)
+        {
+            System.out.println(c.getId()+" "+c.getVehicleNum()+" "+c.getVehicleType()+" "+c.isParked()+" "+c.getParkingSpotID());
+        }
+
+    }
+
+    @Test
+    public void testParkedToday()
+    {
+        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
+                .path(Long.toString(ResourceCreation.t.getTenantID()))
+                .path("customer")
+                .path("report")
+                .queryParam("today",true);
+
+        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);
+        Response response=builder.get();
+
+        Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
+
+        Customer[] customers=response.readEntity(Customer[].class);
+        for(Customer c:customers)
+        {
+            System.out.println(c.getId()+" "+c.getTenantID()+" "+c.getVehicleNum()+" "+c.getVehicleType()+" "+c.isParked()+" "+c.getParkingSpotID());
+        }
+
+    }
 }

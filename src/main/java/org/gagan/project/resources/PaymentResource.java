@@ -126,6 +126,35 @@ public class PaymentResource {
                 .build();
     }
 
+    @GET
+    @Path("/report")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response getTotalAmountCollected(@PathParam("tenID") long tenantId)
+    {
+        Customer[] customers= (Customer[]) CustomerResource.reportForCustomers(tenantId,"null",true).getEntity();
+        HashSet<Long> customerId=new HashSet<>();
+        for(Customer c:customers)
+        {
+            customerId.add(c.getId());
+        }
+        Payment[] payments= (Payment[]) getAllPayments(tenantId,-1).getEntity();
+        long totalAmount=0;
+        for(Payment p:payments)
+        {
+            if(customerId.contains(p.getCustomerId()))
+            {
+                totalAmount+=p.getAmount();
+            }
+        }
+
+        return Response
+                .ok()
+                .entity(totalAmount)
+                .build();
+
+
+    }
+
 //    @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)

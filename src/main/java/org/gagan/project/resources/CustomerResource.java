@@ -15,12 +15,12 @@ import java.sql.Date;
 
 @Path("/tenant/{tenID}/customer")
 public class CustomerResource {
-    private DatabaseConnection db=DatabaseConnection.getInstance();
+    private static DatabaseConnection db=DatabaseConnection.getInstance();
 
     private ParkingSpotResource parkingSpotResource=new ParkingSpotResource();
-    private PaymentResource paymentResource=new PaymentResource();
+    private static PaymentResource paymentResource=new PaymentResource();
 
-    private List<Customer> getCustomerByVehicleType(List<Customer> res,String vtype)
+    private static List<Customer> getCustomerByVehicleType(List<Customer> res, String vtype)
     {
         if(vtype.equals("null"))
         {
@@ -54,8 +54,8 @@ public class CustomerResource {
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllCustomers(@PathParam("tenID") long tenantId ,@DefaultValue("null") @QueryParam("parked") String parked,
-                                    @DefaultValue("null") @QueryParam("vehicletype") String vtype)
+    public static Response getAllCustomers(@PathParam("tenID") long tenantId, @DefaultValue("null") @QueryParam("parked") String parked,
+                                           @DefaultValue("null") @QueryParam("vehicletype") String vtype)
     {
         List<Customer> res=new ArrayList<>();
         try
@@ -375,9 +375,36 @@ public class CustomerResource {
     @GET
     @Path("/report")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response parkedForMoreThanADay(@PathParam("tenID") long tenantID,@DefaultValue("null") @QueryParam("vehicletype") String vtype)
+    public static Response reportForCustomers(@PathParam("tenID") long tenantID,@DefaultValue("null") @QueryParam("vehicletype") String vtype,
+                                       @DefaultValue("false") @QueryParam("today") boolean today)
     {
         Customer[] customers= (Customer[]) getAllCustomers(tenantID,"null",vtype).getEntity();
+        if(today)
+        {
+            List<Customer> list=new ArrayList<>();
+            Timestamp curr=new Timestamp(System.currentTimeMillis());
+
+            for(Customer c:customers)
+            {
+                Timestamp customerTime=c.getEntryTime();
+                if(curr.getDate()==customerTime.getDate() &&
+                curr.getMonth()==customerTime.getMonth() &&
+                curr.getYear()==customerTime.getYear())
+                {
+                    list.add(c);
+                }
+            }
+            customers=new Customer[list.size()];
+            for(int i=0;i<list.size();i++)
+            {
+                customers[i]=list.get(i);
+            }
+            return Response
+                    .ok()
+                    .entity(customers)
+                    .build();
+
+        }
 
         List<Customer> list=new ArrayList<>();
         for(Customer c:customers)
@@ -401,4 +428,7 @@ public class CustomerResource {
                 .entity(customers)
                 .build();
     }
+
+
+
 }

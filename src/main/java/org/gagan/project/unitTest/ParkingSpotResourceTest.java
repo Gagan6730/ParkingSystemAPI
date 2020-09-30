@@ -22,7 +22,10 @@ public class ParkingSpotResourceTest {
     {
 //        "/tenant/{tenID}/parkingspot"
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
-        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("/tenant/2/parkingspot");
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi")
+                .path("tenant")
+                .path(Long.toString(ResourceCreation.t.getTenantID()))
+                .path("parkingspot");
 
         Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);
         Response response=builder.get();
@@ -33,7 +36,7 @@ public class ParkingSpotResourceTest {
         {
             System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType()+" "+ps.isReserved());
         }
-        Assert.assertEquals(parkingSpots.length,24);
+        Assert.assertEquals(parkingSpots.length,40);
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
     }
@@ -42,7 +45,10 @@ public class ParkingSpotResourceTest {
     public void getAllCarParkingSpots()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
-        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("/tenant/2/parkingspot")
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi")
+                .path("tenant")
+                .path(Long.toString(ResourceCreation.t.getTenantID()))
+                .path("parkingspot")
                 .queryParam("vehicletype","CAR");
 
         Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);
@@ -73,7 +79,10 @@ public class ParkingSpotResourceTest {
     public void getAllBikeParkingSpots()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
-        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("/tenant/2/parkingspot")
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi")
+                .path("tenant")
+                .path(Long.toString(ResourceCreation.t.getTenantID()))
+                .path("parkingspot")
                 .queryParam("vehicletype","BIKE");
 
         Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);

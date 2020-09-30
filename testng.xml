@@ -39,6 +39,10 @@
                     <include name="testGetAllCustomers"/>
                     <include name="testGetAllCustomers_Car"/>
                     <include name="testGetAllCustomers_Bike"/>
+                    <include name="testParkedMoreThanDay"/>
+                    <include name="testParkedToday"/>
+
+
                 </methods>
             </class>
             <class name="org.gagan.project.unitTest.ParkingSpotResourceTest">
@@ -59,6 +63,7 @@
                 <methods>
                     <include name="testGetAllPayments"/>
                     <include name="testGetPaymentWithID"/>
+                    <include name="testGetTotalAmountCollected"/>
                 </methods>
             </class>
 
