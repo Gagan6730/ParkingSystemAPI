@@ -16,7 +16,6 @@ import javax.ws.rs.core.Response;
 import java.io.*;
 import java.util.*;
 
-@Test(priority = 4)
 public class ParkingSpotResourceTest {
     @Test
     public void getAllParkingSpots()
@@ -69,5 +68,34 @@ public class ParkingSpotResourceTest {
 
     }
 
+    @Test
+    public void getAllBikeParkingSpots()
+    {
+        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("/tenant/2/parkingspot")
+                .queryParam("vehicletype","BIKE");
 
+        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);
+        Response response=builder.get();
+
+        ParkingSpot[] parkingSpots=response.readEntity(ParkingSpot[].class);
+
+        for(ParkingSpot ps:parkingSpots)
+        {
+            Assert.assertEquals(ps.getVehicleType(), VehicleType.BIKE);
+            System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType());
+        }
+
+        Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
+
+
+
+        //wrong query param
+        webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("/tenant/2/parkingspot")
+                .queryParam("vehicletype","yoyo");
+        builder=webTarget.request(MediaType.APPLICATION_JSON);
+        response=builder.get();
+        Assert.assertEquals(response.getStatus(),Response.Status.NO_CONTENT.getStatusCode());
+
+    }
 }

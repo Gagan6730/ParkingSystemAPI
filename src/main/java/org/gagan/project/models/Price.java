@@ -15,6 +15,14 @@ public class Price {
         this.threshold = threshold;
     }
 
+    public Price(VehicleType vehicleType, long hourlyRate, long maxRate, long threshold) {
+        this.vehicleType = vehicleType;
+        this.hourlyRate = hourlyRate;
+        this.maxRate = maxRate;
+        this.threshold = threshold;
+    }
+
+
     public Price() {
     }
 

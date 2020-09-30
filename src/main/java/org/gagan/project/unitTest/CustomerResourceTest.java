@@ -35,7 +35,7 @@ public class CustomerResourceTest {
         }
     }
 
-    @Test(priority = 8)
+    @Test
     public void testAddCustomer()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
@@ -47,14 +47,35 @@ public class CustomerResourceTest {
 
         for(Customer c:list) {
             Response response = builder.post(Entity.entity(c, MediaType.APPLICATION_JSON));
-//            Customer customer=response.readEntity(Customer.class);
-            System.out.println(response.getHeaders().toString());
+            Customer customer=response.readEntity(Customer.class);
+            c.setId(customer.getId());
+            System.out.println(c.getId()+" "+c.getVehicleNum()+" "+c.getVehicleType());
 //            System.out.println(c.toString());
             Assert.assertEquals(response.getStatus(), Response.Status.CREATED.getStatusCode());
         }
     }
 
-    @Test(priority = 9)
+    @Test
+    public void unparkCustomer()
+    {
+        Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
+        WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
+                .path(Long.toString(ResourceCreation.t.getTenantID()))
+                .path("customer")
+                .path(Long.toString(list.get(0).getId()));
+
+        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
+        Response response=builder.put(Entity.entity(list.get(0),MediaType.APPLICATION_JSON));
+
+        System.out.println("unparkCustomer");
+        list.get(0).setParked(response.readEntity(Customer.class).isParked());
+        System.out.println(list.get(0).isParked());
+        Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
+
+
+    }
+
+    @Test
     public void testGetAllCustomers()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
@@ -70,12 +91,12 @@ public class CustomerResourceTest {
         System.out.println("testGetAllCustomers");
         for(Customer c:customers)
         {
-            System.out.println(c.getId()+" "+c.getVehicleNum()+" "+c.getVehicleType());
+            System.out.println(c.getId()+" "+c.getVehicleNum()+" "+c.getVehicleType()+" "+c.isParked());
         }
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
 
     }
-    @Test(priority = 10)
+    @Test
     public void testGetAllCustomers_Car()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
@@ -99,7 +120,7 @@ public class CustomerResourceTest {
 
     }
 
-    @Test(priority = 11)
+    @Test
     public void testGetAllCustomers_Bike()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
@@ -122,10 +143,5 @@ public class CustomerResourceTest {
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
 
     }
-
-
-
-
-
 
 }

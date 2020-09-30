@@ -14,8 +14,4 @@ public class PaymentResourceTest {
     public void testGetPaymentWithID() {
     }
 
-    @Test
-    public void testCalculatePrice() {
-
-    }
 }

@@ -91,8 +91,8 @@ public class PricesResource {
         {
             Statement stmt=db.getC().createStatement();
             long type=price.getVehicleType()==VehicleType.CAR?0:1;
-            String update="update price set vehicletype="+type+" , hourlyrate="+price.getHourlyRate()+" , maxrate="+price.getMaxRate()
-                    +" , threshold="+price.getThreshold()+" where tenantid="+tenantId+";";
+            String update="update price set hourlyrate="+price.getHourlyRate()+" , maxrate="+price.getMaxRate()
+                    +" , threshold="+price.getThreshold()+" where tenantid="+tenantId+"and vehicletype="+type+";";
 
             price.setTenantId(tenantId);
 
