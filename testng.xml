@@ -41,12 +41,18 @@
                     <include name="testGetAllCustomers_Bike"/>
                 </methods>
             </class>
-
             <class name="org.gagan.project.unitTest.ParkingSpotResourceTest">
                 <methods>
                     <include name="getAllParkingSpots"/>
                     <include name="getAllCarParkingSpots"/>
                     <include name="getAllBikeParkingSpots"/>
+                </methods>
+            </class>
+            <class name="org.gagan.project.unitTest.TicketResourceTest">
+                <methods>
+                    <include name="testGetAllTickets"/>
+                    <include name="testGetTicketWithID"/>
+
                 </methods>
             </class>
             <class name="org.gagan.project.unitTest.PaymentResourceTest">

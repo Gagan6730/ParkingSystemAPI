@@ -36,8 +36,7 @@ public class CustomerResourceTest {
     }
 
     @Test
-    public void testAddCustomer()
-    {
+    public void testAddCustomer() throws InterruptedException {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
                 .path(Long.toString(ResourceCreation.t.getTenantID()))
@@ -53,6 +52,7 @@ public class CustomerResourceTest {
 //            System.out.println(c.toString());
             Assert.assertEquals(response.getStatus(), Response.Status.CREATED.getStatusCode());
         }
+        Thread.sleep(5000);
     }
 
     @Test

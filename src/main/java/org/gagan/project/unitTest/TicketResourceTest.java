@@ -1,6 +1,7 @@
 package org.gagan.project.unitTest;
 
 import org.gagan.project.models.Payment;
+import org.gagan.project.models.Ticket;
 import org.gagan.project.resources.TenantResource;
 import org.glassfish.jersey.client.ClientConfig;
 import org.testng.Assert;
@@ -12,51 +13,50 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.*;
+import java.util.*;
 
-import java.util.List;
-
-import static org.testng.Assert.*;
-
-public class PaymentResourceTest {
-
-    Payment[] payments;
+public class TicketResourceTest {
+    Ticket[] tickets;
     @Test
-    public void testGetAllPayments() {
+    public void testGetAllTickets()
+    {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
                 .path(Long.toString(ResourceCreation.t.getTenantID()))
-                .path("payment");
+                .path("ticket");
 
-        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
+        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);
         Response response=builder.get();
 
-        payments=response.readEntity(Payment[].class);
+        tickets=response.readEntity(Ticket[].class);
 
-        for(Payment p:payments)
+        for(Ticket t:tickets)
         {
-            System.out.println(p.getTenantId()+" "+p.getCustomerId()+" "+p.getAmount());
+            System.out.println(t.getId()+" "+t.getTenantid()+" "+t.getCustomerid());
         }
-        Assert.assertEquals(payments.length,1);
+        Assert.assertEquals(tickets.length,6);
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
     }
 
+
     @Test
-    public void testGetPaymentWithID() {
+    public void testGetTicketWithID()
+    {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
                 .path(Long.toString(ResourceCreation.t.getTenantID()))
-                .path("payment")
-                .path(Long.toString(payments[0].getId()));
+                .path("ticket")
+                .path(Long.toString(tickets[0].getId()));
 
-        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON);
+        Invocation.Builder builder=webTarget.request(MediaType.APPLICATION_JSON);
         Response response=builder.get();
 
-        Payment p=response.readEntity(Payment.class);
+        Ticket t=response.readEntity(Ticket.class);
 
-        System.out.println(p.getTenantId()+" "+p.getCustomerId()+" "+p.getAmount());
+        System.out.println(t.getId()+" "+t.getTenantid()+" "+t.getCustomerid());
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
     }
-
 }
