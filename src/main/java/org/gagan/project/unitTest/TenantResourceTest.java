@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import test.v6.A;
 
+import javax.annotation.Priority;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -19,7 +20,7 @@ import java.sql.Statement;
 public class TenantResourceTest {
 
     @Test(priority = 3)
-    public void getAllTenantsTest()
+    public void testGetAllTenants()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant");
@@ -37,7 +38,7 @@ public class TenantResourceTest {
 
     }
     @Test(priority = 2)
-    public void getTenantWithIDTest()
+    public void testGetTenantWithID()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant").path(Long.toString(ResourceCreation.t.getTenantID()));
@@ -61,7 +62,7 @@ public class TenantResourceTest {
     }
 
     @Test(priority = 1)
-    public void addTenantTest()
+    public void testAddTenant()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant");
@@ -72,6 +73,7 @@ public class TenantResourceTest {
         Response response=builder.post(Entity.entity(ResourceCreation.t,MediaType.APPLICATION_JSON));
 
         System.out.println(response.getStatus());
+        System.out.println(response.getHeaders().toString());
         ResourceCreation.t.setTenantID(response.readEntity(Tenant.class).getTenantID());
         Assert.assertEquals(response.getStatus(),Response.Status.CREATED.getStatusCode());
 

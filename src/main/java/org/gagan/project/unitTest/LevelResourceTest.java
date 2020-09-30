@@ -4,14 +4,17 @@ import org.gagan.project.models.Level;
 import org.gagan.project.resources.TenantResource;
 import org.glassfish.jersey.client.ClientConfig;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import javax.annotation.Priority;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import static org.testng.Assert.*;
+
 
 public class LevelResourceTest {
 
@@ -105,6 +108,9 @@ public class LevelResourceTest {
 
         Assert.assertEquals(response.getStatus(),204);
     }
+
+
+
 
 
 

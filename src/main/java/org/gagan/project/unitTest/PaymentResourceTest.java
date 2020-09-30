@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-@Test(priority = 3)
 public class PaymentResourceTest {
 
     @Test

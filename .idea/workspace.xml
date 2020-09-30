@@ -3,20 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f4099f62-a884-4c34-a1fc-92010b6e767e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/models/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/models/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/LevelResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/LevelResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/resources/ParkingSpotResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/CustomerResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/CustomerResourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/ParkingSpotResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/ParkingSpotResourceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/LevelResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/LevelResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/PaymentResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/PaymentResourceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/TenantResourceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/gagan/project/unitTest/TenantResourceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/models/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/models/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/DatabaseConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/DatabaseConnection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/LevelResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/LevelResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/ParkingSpotResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/PaymentResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/gagan/project/resources/PaymentResource.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-29" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2020-09-29" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +54,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -85,7 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.org.gagan.project.unitTest">
+  <component name="RunManager" selected="TestNG./Users/gagan/Desktop/ParkingSystem/testng.xml">
     <configuration name="CustomerResourceTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ParkingSystem" />
       <extension name="coverage">
@@ -138,6 +130,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="/Users/gagan/Desktop/ParkingSystem/testng.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ParkingSystem" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/testng.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="org.gagan.project.unitTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="ParkingSystem" />
       <extension name="coverage">
@@ -156,6 +158,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG./Users/gagan/Desktop/ParkingSystem/testng.xml" />
         <item itemvalue="TestNG.org.gagan.project.unitTest" />
         <item itemvalue="TestNG.TenantResourceTest" />
         <item itemvalue="TestNG.CustomerResourceTest" />
@@ -181,7 +184,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

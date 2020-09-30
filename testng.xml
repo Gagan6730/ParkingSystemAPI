@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="ParkingSystem">
+        <classes>
+            <class name="org.gagan.project.unitTest.ResourceCreation">
+                <methods>
+                    <include name="createTenant"/>
+                    <include name="deleteAll"/>
+                </methods>
+            </class>
+            <class name="org.gagan.project.unitTest.TenantResourceTest">
+                <methods>
+                    <include name="testGetAllTenants"/>
+                    <include name="testGetTenantWithID"/>
+                    <include name="testAddTenant"/>
+                </methods>
+            </class>
+            <class name="org.gagan.project.unitTest.LevelResourceTest">
+                <methods>
+                    <include name="testGetAllLevels"/>
+                    <include name="testGetLevelWithId"/>
+                    <include name="testAddLevel"/>
+                    <include name="testAddParkingSpotsAtLevel"/>
+                </methods>
+            </class>
+            <class name="org.gagan.project.unitTest.CustomerResourceTest">
+                <methods>
+                    <include name="testAddCustomer"/>
+                    <include name="testGetAllCustomers"/>
+                    <include name="testGetAllCustomers_Car"/>
+                    <include name="testGetAllCustomers_Bike"/>
+                </methods>
+            </class>
+
+            <class name="org.gagan.project.unitTest.ParkingSpotResourceTest">
+                <methods>
+                    <include name="getAllParkingSpots"/>
+                    <include name="getAllCarParkingSpots"/>
+                </methods>
+            </class>
+            <class name="org.gagan.project.unitTest.PaymentResourceTest">
+                <methods>
+                    <include name="testGetAllPayments"/>
+                    <include name="testGetPaymentWithID"/>
+                    <include name="testCalculatePrice"/>
+                </methods>
+            </class>
+
+        </classes>
+    </test>
+</suite>
