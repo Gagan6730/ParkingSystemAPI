@@ -31,8 +31,9 @@ public class ParkingSpotResourceTest {
 
         for(ParkingSpot ps:parkingSpots)
         {
-            System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType());
+            System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType()+" "+ps.isReserved());
         }
+        Assert.assertEquals(parkingSpots.length,24);
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
     }
@@ -52,7 +53,7 @@ public class ParkingSpotResourceTest {
         for(ParkingSpot ps:parkingSpots)
         {
             Assert.assertEquals(ps.getVehicleType(), VehicleType.CAR);
-            System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType());
+            System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType()+" "+ps.isReserved());
         }
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
@@ -83,7 +84,7 @@ public class ParkingSpotResourceTest {
         for(ParkingSpot ps:parkingSpots)
         {
             Assert.assertEquals(ps.getVehicleType(), VehicleType.BIKE);
-            System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType());
+            System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType()+" "+ps.isReserved());
         }
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());

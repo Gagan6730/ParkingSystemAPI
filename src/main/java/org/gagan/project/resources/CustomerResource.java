@@ -370,4 +370,35 @@ public class CustomerResource {
         return null;
 
     }
+
+
+    @GET
+    @Path("/report")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response parkedForMoreThanADay(@PathParam("tenID") long tenantID,@DefaultValue("null") @QueryParam("vehicletype") String vtype)
+    {
+        Customer[] customers= (Customer[]) getAllCustomers(tenantID,"null",vtype).getEntity();
+
+        List<Customer> list=new ArrayList<>();
+        for(Customer c:customers)
+        {
+            if(c.isParked()) {
+                long hours=paymentResource.calculateNumberOfHours(c.getEntryTime(),new Timestamp(System.currentTimeMillis()));
+                if(hours>24)
+                {
+                    list.add(c);
+                }
+            }
+        }
+
+        customers=new Customer[list.size()];
+        for(int i=0;i<list.size();i++)
+        {
+            customers[i]=list.get(i);
+        }
+        return Response
+                .ok()
+                .entity(customers)
+                .build();
+    }
 }

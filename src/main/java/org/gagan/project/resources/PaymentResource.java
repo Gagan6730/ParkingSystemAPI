@@ -188,7 +188,7 @@ public class PaymentResource {
         System.out.println(days+" "+hours+" "+amount);
 //        return amount;
     }
-    private long calculateNumberOfHours(Timestamp entry,Timestamp exit)
+    public long calculateNumberOfHours(Timestamp entry,Timestamp exit)
     {
         long end=exit.getTime();
         long start=entry.getTime();
