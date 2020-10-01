@@ -90,7 +90,7 @@ public class LevelResource {
         try
         {
             Statement stmt=db.getC().createStatement();
-            ResultSet rs=stmt.executeQuery("select * from level where tenantid="+tenantId+";");
+            ResultSet rs=stmt.executeQuery("select * from level where tenantid="+tenantId+" and id="+level+";");
 
             if(rs.next())
             {
@@ -189,6 +189,13 @@ public class LevelResource {
         try
         {
             Level currLevel= (Level) getLevelWithId(tenantId,level).getEntity();
+            if(currLevel==null)
+            {
+                return Response
+                        .noContent()
+                        .header("Error","No level:"+level+" available for tenantid:"+tenantId)
+                        .build();
+            }
 
             Statement stmt=db.getC().createStatement();
             stmt.executeUpdate("update level set carspots="+(currLevel.getCarSpots()+car)+" , bikespots="+(currLevel.getBikeSpots()+bike)+" where tenantid="

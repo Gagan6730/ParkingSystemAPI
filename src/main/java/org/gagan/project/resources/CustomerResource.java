@@ -241,7 +241,7 @@ public class CustomerResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addCustomer(@PathParam("tenID") long tenantId, Customer c, @Context UriInfo uriInfo)
+    public Response parkCustomer(@PathParam("tenID") long tenantId, Customer c, @Context UriInfo uriInfo)
     {
         try
         {

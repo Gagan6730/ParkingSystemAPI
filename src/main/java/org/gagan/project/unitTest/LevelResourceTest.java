@@ -19,13 +19,15 @@ import static org.testng.Assert.*;
 public class LevelResourceTest {
 
     public static Level level=null;
+    static Level level2=null;
     @BeforeClass
     public void createLevel()
     {
         level=new Level(10,10);
+        level2=new Level(5,5);
     }
 
-    @Test(priority = 6)
+    @Test
     public void testGetAllLevels() {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
@@ -44,7 +46,7 @@ public class LevelResourceTest {
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
     }
 
-    @Test(priority = 7)
+    @Test
     public void testGetLevelWithId() {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
         WebTarget webTarget= client.target("http://localhost:8080/ParkingSystem/webapi").path("tenant")
@@ -63,7 +65,7 @@ public class LevelResourceTest {
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
     }
 
-    @Test(priority = 4)
+    @Test
     public void testAddLevel() {
 
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));
@@ -80,11 +82,17 @@ public class LevelResourceTest {
         level.setTenantId(l.getTenantId());
         level.setId(l.getId());
 
+        Response response2=builder.post(Entity.entity(level2,MediaType.APPLICATION_JSON));
+        Level l2=response2.readEntity(Level.class);
+        level2.setTenantId(l2.getTenantId());
+        level2.setId(l2.getId());
+
         Assert.assertEquals(response.getStatus(),Response.Status.CREATED.getStatusCode());
+        Assert.assertEquals(response2.getStatus(),Response.Status.CREATED.getStatusCode());
     }
 
 
-    @Test(priority = 5)
+    @Test
     public void testAddParkingSpotsAtLevel()
     {
         Client client= ClientBuilder.newClient(new ClientConfig().register(TenantResource.class));

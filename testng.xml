@@ -18,10 +18,10 @@
             </class>
             <class name="org.gagan.project.unitTest.LevelResourceTest">
                 <methods>
-                    <include name="testGetAllLevels"/>
-                    <include name="testGetLevelWithId"/>
                     <include name="testAddLevel"/>
+                    <include name="testGetAllLevels"/>
                     <include name="testAddParkingSpotsAtLevel"/>
+                    <include name="testGetLevelWithId"/>
                 </methods>
             </class>
             <class name="org.gagan.project.unitTest.PricesResourceTest">

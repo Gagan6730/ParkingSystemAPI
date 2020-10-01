@@ -61,18 +61,6 @@ public class TenantResource {
                 .build();
     }
 
-//    @Path("/{tenID}/customer")
-//    public CustomerResource getCustomerResource()
-//    {
-//        return new CustomerResource();
-//    }
-//
-//    @Path("/{tenID}/parkingspot")
-//    public ParkingSpotResource getParkingSpotResource()
-//    {
-//        return new ParkingSpotResource();
-//    }
-
     @GET
     @Path("/{tenID}")
     @Produces(MediaType.APPLICATION_JSON)

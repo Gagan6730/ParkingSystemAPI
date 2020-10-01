@@ -36,7 +36,7 @@ public class ParkingSpotResourceTest {
         {
             System.out.println(ps.getId()+" "+ps.getLevel()+" "+ps.getVehicleType()+" "+ps.isReserved());
         }
-        Assert.assertEquals(parkingSpots.length,40);
+        Assert.assertEquals(parkingSpots.length,50);
 
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
     }

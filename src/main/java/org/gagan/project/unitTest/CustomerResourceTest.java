@@ -70,7 +70,8 @@ public class CustomerResourceTest {
 
         System.out.println("unparkCustomer");
         list.get(0).setParked(response.readEntity(Customer.class).isParked());
-        System.out.println(list.get(0).isParked());
+        Customer c=list.get(0);
+        System.out.println(c.getId()+" "+c.getVehicleNum()+" "+c.getVehicleType()+" "+c.isParked());
         Assert.assertEquals(response.getStatus(),Response.Status.OK.getStatusCode());
 
 
