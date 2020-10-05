@@ -3,20 +3,20 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="ParkingSystem">
         <classes>
-            <class name="org.gagan.project.unitTest.ResourceCreation">
+            <class name="org.project.parkingsystem.unitTest.ResourceCreation">
                 <methods>
                     <include name="createTenant"/>
                     <include name="deleteAll"/>
                 </methods>
             </class>
-            <class name="org.gagan.project.unitTest.TenantResourceTest">
+            <class name="org.project.parkingsystem.unitTest.TenantResourceTest">
                 <methods>
-                    <include name="testGetAllTenants"/>
-                    <include name="testGetTenantWithID"/>
                     <include name="testAddTenant"/>
+                    <include name="testGetTenantWithID"/>
+                    <include name="testGetAllTenants"/>
                 </methods>
             </class>
-            <class name="org.gagan.project.unitTest.LevelResourceTest">
+            <class name="org.project.parkingsystem.unitTest.LevelResourceTest">
                 <methods>
                     <include name="testAddLevel"/>
                     <include name="testGetAllLevels"/>
@@ -24,7 +24,7 @@
                     <include name="testGetLevelWithId"/>
                 </methods>
             </class>
-            <class name="org.gagan.project.unitTest.PricesResourceTest">
+            <class name="org.project.parkingsystem.unitTest.PricesResourceTest">
                 <methods>
                     <include name="testAddPrice"/>
                     <include name="testUpdatePrice"/>
@@ -32,7 +32,7 @@
 
                 </methods>
             </class>
-            <class name="org.gagan.project.unitTest.CustomerResourceTest">
+            <class name="org.project.parkingsystem.unitTest.CustomerResourceTest">
                 <methods>
                     <include name="testAddCustomer"/>
                     <include name="unparkCustomer"/>
@@ -45,21 +45,21 @@
 
                 </methods>
             </class>
-            <class name="org.gagan.project.unitTest.ParkingSpotResourceTest">
+            <class name="org.project.parkingsystem.unitTest.ParkingSpotResourceTest">
                 <methods>
                     <include name="getAllParkingSpots"/>
                     <include name="getAllCarParkingSpots"/>
                     <include name="getAllBikeParkingSpots"/>
                 </methods>
             </class>
-            <class name="org.gagan.project.unitTest.TicketResourceTest">
+            <class name="org.project.parkingsystem.unitTest.TicketResourceTest">
                 <methods>
                     <include name="testGetAllTickets"/>
                     <include name="testGetTicketWithID"/>
 
                 </methods>
             </class>
-            <class name="org.gagan.project.unitTest.PaymentResourceTest">
+            <class name="org.project.parkingsystem.unitTest.PaymentResourceTest">
                 <methods>
                     <include name="testGetAllPayments"/>
                     <include name="testGetPaymentWithID"/>
